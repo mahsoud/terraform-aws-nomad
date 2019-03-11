@@ -153,6 +153,9 @@ EOF
     client_config=$(cat <<EOF
 client {
   enabled = true
+  options {
+			"driver.raw_exec.enable" = "1"
+	}
 }
 EOF
 )
@@ -174,12 +177,6 @@ advertise {
 $client_config
 
 $server_config
-
-plugin "raw_exec" {
-  config {
-    enabled = true
-  }
-}
 
 consul {
   address = "127.0.0.1:8500"
